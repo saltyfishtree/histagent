@@ -1,0 +1,145 @@
+/* 组件样式 */
+
+/* 侧边栏组件 */
+.sidebar.collapsed .sidebar-text {
+    display: none;
+}
+
+.sidebar.collapsed .sidebar-footer-text {
+    display: none;
+}
+
+.sidebar.collapsed .logo-text {
+    display: none;
+}
+
+.sidebar.collapsed .new-chat-text {
+    display: none;
+}
+
+.sidebar.collapsed .toggle-button {
+    justify-content: center;
+}
+
+/* 消息组件 */
+.message {
+    margin-bottom: 1rem;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.message.user {
+    align-items: flex-end;
+}
+
+.message.assistant {
+    align-items: flex-start;
+}
+
+.message-content {
+    max-width: 70%;
+    padding: 1rem;
+    border-radius: 1rem;
+    word-wrap: break-word;
+}
+
+.message.user .message-content {
+    background: #3b82f6;
+    color: white;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.message.assistant .message-content {
+    background: #f3f4f6;
+    color: #1f2937;
+    border-bottom-left-radius: 0.25rem;
+}
+
+/* 工具调用状态 */
+.tool-call {
+    border-left: 4px solid;
+    transition: all 0.3s ease;
+}
+
+.tool-call.pending {
+    border-color: #3b82f6;
+}
+
+.tool-call.running {
+    border-color: #f59e0b;
+}
+
+.tool-call.success {
+    border-color: #10b981;
+}
+
+.tool-call.error {
+    border-color: #ef4444;
+}
+
+/* 状态指示器 */
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.status-indicator.connected {
+    background: #10b981;
+}
+
+.status-indicator.connecting {
+    background: #f59e0b;
+    animation: pulse 2s infinite;
+}
+
+.status-indicator.disconnected {
+    background: #ef4444;
+}
+
+/* 文件上传区域 */
+.file-drop-zone {
+    border: 2px dashed #d1d5db;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.file-drop-zone.dragover {
+    border-color: #3b82f6;
+    background: #eff6ff;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+} 

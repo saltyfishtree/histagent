@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HistAgent</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .sidebar {
+            transition: width 0.3s ease;
+        }
+        .sidebar.collapsed {
+            width: 80px;
+        }
+        .sidebar.collapsed .sidebar-text {
+            display: none;
+        }
+        .sidebar.collapsed .sidebar-footer-text {
+            display: none;
+        }
+        .sidebar.collapsed .logo-text {
+            display: none;
+        }
+        .sidebar.collapsed .new-chat-text {
+            display: none;
+        }
+         .sidebar.collapsed .toggle-button {
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+<div class="flex h-screen bg-white">
+<div class="sidebar bg-gray-50 flex flex-col p-4" id="sidebar" style="width: 260px;">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center">
+<div class="bg-blue-600 p-2 rounded-lg mr-3">
+<span class="material-icons text-white">history_edu</span>
+</div>
+<h1 class="text-xl font-bold logo-text">HistAgent</h1>
+</div>
+<button class="p-2 rounded-md hover:bg-gray-200" id="toggleSidebar">
+<span class="material-icons">menu</span>
+</button>
+</div>
+<button class="w-full bg-blue-600 text-white flex items-center justify-center py-3 rounded-lg hover:bg-blue-700 transition-colors mb-6">
+<span class="material-icons">add</span>
+<span class="ml-2 font-semibold new-chat-text">新建会话</span>
+</button>
+<nav class="flex-grow">
+<ul>
+<li class="mb-2">
+<a class="flex items-center p-3 text-gray-700 rounded-lg bg-blue-100 text-blue-600 font-semibold" href="#">
+<span class="material-icons">smart_toy</span>
+<span class="ml-4 sidebar-text">智能对话</span>
+</a>
+</li>
+<li class="mb-2">
+<a class="flex items-center p-3 text-gray-500 hover:bg-gray-200 rounded-lg" href="#">
+<span class="material-icons">build</span>
+<span class="ml-4 sidebar-text">工具箱</span>
+</a>
+</li>
+<li class="mb-2">
+<a class="flex items-center p-3 text-gray-500 hover:bg-gray-200 rounded-lg" href="#">
+<span class="material-icons">science</span>
+<span class="ml-4 sidebar-text">深度研究</span>
+</a>
+</li>
+<li class="mb-2">
+<a class="flex items-center p-3 text-gray-500 hover:bg-gray-200 rounded-lg" href="#">
+<span class="material-icons">history</span>
+<span class="ml-4 sidebar-text">历史记录</span>
+</a>
+</li>
+</ul>
+</nav>
+<div class="mt-auto">
+<div class="flex flex-col items-center text-center p-4 border-t border-gray-200">
+<div class="p-4 rounded-full bg-gray-200 mb-4">
+<span class="material-icons text-gray-500" style="font-size: 36px;">chat</span>
+</div>
+<p class="text-gray-600 sidebar-footer-text">暂无会话历史</p>
+<p class="text-xs text-gray-400 sidebar-footer-text">开始对话以创建您的第一个会话</p>
+</div>
+<div class="flex items-center justify-between text-sm text-gray-500 p-2 border-t border-gray-200">
+<span class="sidebar-text">v1.0.0</span>
+<span class="sidebar-text">© 2024 HistAgent</span>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col">
+<header class="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
+<div>
+<h2 class="text-lg font-semibold">HistAgent 对话</h2>
+<p class="text-sm text-gray-500">与AI助手对话，获取专业历史研究支持</p>
+</div>
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-2">
+<span class="material-icons text-purple-600">account_circle</span>
+<div class="text-sm">
+<p class="font-semibold">Research User</p>
+<p class="text-purple-600">Premium Plan</p>
+</div>
+<span class="material-icons text-yellow-500">star</span>
+</div>
+</div>
+</header>
+<main class="flex-1 flex bg-gray-50 overflow-y-auto">
+<div class="flex-1 flex flex-col p-8">
+<div class="flex-1 flex flex-col items-center justify-center">
+<div class="text-center">
+<div class="inline-block bg-blue-600 p-6 rounded-2xl mb-6">
+<span class="material-icons text-white" style="font-size: 48px;">history_edu</span>
+</div>
+<h1 class="text-4xl font-bold mb-2">Welcome to HistAgent</h1>
+<p class="text-gray-600 max-w-md mx-auto">
+                                Ask me anything about history, upload documents to analyze, or start a research project.
+                            </p>
+<div class="mt-4 text-sm text-gray-500">
+<a class="text-blue-600 hover:underline" href="#">历史研究</a>
+<span class="mx-2">·</span>
+<a class="text-blue-600 hover:underline" href="#">文档分析</a>
+<span class="mx-2">·</span>
+<a class="text-blue-600 hover:underline" href="#">多语言翻译</a>
+</div>
+<div class="mt-4 inline-flex items-center bg-green-100 text-green-800 text-sm font-medium px-4 py-2 rounded-full">
+<span class="material-icons text-green-600 mr-2">power</span>
+                                正在连接服务器...
+                            </div>
+</div>
+</div>
+<footer class="p-4 bg-white border-t border-gray-200">
+<div class="max-w-3xl mx-auto">
+<div class="relative">
+<input class="w-full py-3 pl-12 pr-20 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" disabled="" placeholder="期待连接服务器..." type="text"/>
+<span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">attach_file</span>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center space-x-2">
+<span class="material-icons text-gray-400">sentiment_satisfied_alt</span>
+<button class="p-2 bg-gray-200 rounded-lg cursor-not-allowed">
+<span class="material-icons text-gray-400">send</span>
+</button>
+</div>
+</div>
+<p class="text-xs text-center text-gray-500 mt-2">
+                                HistAgent 可以帮助您进行历史研究、文档分析和多语言翻译 ✨
+                            </p>
+</div>
+</footer>
+</div>
+<div class="w-96 bg-white border-l border-gray-200 flex flex-col">
+<div class="p-4 border-b border-gray-200">
+<h3 class="text-lg font-semibold flex items-center"><span class="material-icons mr-2 text-blue-600">build_circle</span>工具调用</h3>
+</div>
+<div class="flex-1 p-4 space-y-4 overflow-y-auto">
+<div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+<div class="flex items-center justify-between mb-2">
+<span class="font-semibold text-sm text-gray-800 flex items-center"><span class="material-icons mr-2 text-blue-500">search</span>搜索引擎</span>
+<span class="text-xs text-blue-600 flex items-center">
+<span class="material-icons animate-spin mr-1" style="font-size: 16px;">sync</span>
+                                    正在调用
+                                </span>
+</div>
+<div class="mt-3 bg-white p-3 rounded-md border border-gray-200">
+<p class="text-sm font-medium text-gray-700">搜索查询:</p>
+<p class="text-sm text-gray-500 mt-1">"清朝历史"</p>
+</div>
+</div>
+<div class="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+<div class="flex items-center justify-between mb-2">
+<span class="font-semibold text-sm text-gray-800 flex items-center"><span class="material-icons mr-2 text-green-500">description</span>文档分析</span>
+<span class="text-xs text-green-600 bg-green-100 px-2 py-1 rounded-full font-medium">调用成功</span>
+</div>
+<div class="mt-3 bg-white p-3 rounded-md border border-gray-200 space-y-2">
+<div>
+<p class="text-sm font-medium text-gray-700">分析文档:</p>
+<p class="text-sm text-gray-500 mt-1">'清史稿.pdf'</p>
+</div>
+<div>
+<p class="text-sm font-medium text-gray-700">分析过程:</p>
+<p class="text-sm text-gray-500 mt-1">1. 读取文档内容...</p>
+<p class="text-sm text-gray-500">2. 提取关键信息...</p>
+<p class="text-sm text-gray-500">3. 生成摘要...</p>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 p-4 rounded-lg border-l-4 border-red-500">
+<div class="flex items-center justify-between mb-2">
+<span class="font-semibold text-sm text-gray-800 flex items-center"><span class="material-icons mr-2 text-red-500">g_translate</span>多语言翻译</span>
+<span class="text-xs text-red-600 bg-red-100 px-2 py-1 rounded-full font-medium">调用失败</span>
+</div>
+<div class="mt-3 bg-white p-3 rounded-md border border-red-200">
+<p class="text-sm font-medium text-gray-700">翻译内容:</p>
+<p class="text-sm text-gray-500 mt-1">"Qing Dynasty" 为中文</p>
+<p class="text-sm font-medium text-red-700 mt-2">错误信息:</p>
+<p class="text-sm text-red-500 mt-1">翻译服务超时。</p>
+</div>
+</div>
+<div class="bg-gray-50 p-4 rounded-lg border-l-4 border-gray-300 opacity-60">
+<div class="flex items-center justify-between mb-2">
+<span class="font-semibold text-sm text-gray-800 flex items-center"><span class="material-icons mr-2 text-gray-400">source_notes</span>知识库</span>
+<span class="text-xs text-gray-500">等待调用</span>
+</div>
+<div class="mt-3 bg-white p-3 rounded-md border border-gray-200">
+<p class="text-sm font-medium text-gray-500">查询:</p>
+<p class="text-sm text-gray-400 mt-1">"康熙皇帝"</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<script>
+        const toggleSidebarBtn = document.getElementById('toggleSidebar');
+        const sidebar = document.getElementById('sidebar');
+        toggleSidebarBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+        });
+    </script>
+
+</body></html>

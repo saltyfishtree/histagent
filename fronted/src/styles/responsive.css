@@ -1,0 +1,133 @@
+/* 响应式样式 */
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 50;
+        height: 100vh;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+    
+    .sidebar.collapsed {
+        width: 260px !important;
+        transform: translateX(-100%);
+    }
+    
+    .content-area {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .chat-container {
+        padding: 1rem;
+    }
+    
+    .message-content {
+        max-width: 85%;
+    }
+    
+    .tool-panel {
+        width: 280px;
+        flex-shrink: 0;
+    }
+}
+
+/* 平板端适配 */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .sidebar {
+        width: 200px;
+    }
+    
+    .sidebar.collapsed {
+        width: 60px !important;
+    }
+    
+    .tool-panel {
+        width: 280px;
+    }
+    
+    .chat-container {
+        padding: 1.5rem;
+    }
+}
+
+/* 大屏幕适配 */
+@media (min-width: 1440px) {
+    .chat-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 3rem;
+    }
+    
+    .tool-panel {
+        width: 400px;
+    }
+}
+
+/* 超大屏幕 */
+@media (min-width: 1920px) {
+    .chat-container {
+        max-width: 1000px;
+    }
+    
+    .tool-panel {
+        width: 450px;
+    }
+}
+
+/* 移动端横屏 */
+@media (max-height: 500px) and (orientation: landscape) {
+    .sidebar {
+        height: 100vh;
+        overflow-y: auto;
+    }
+    
+    .chat-container {
+        padding: 0.5rem;
+    }
+    
+    .input-container {
+        padding: 0.5rem;
+    }
+}
+
+/* 高分辨率屏幕 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .sidebar {
+        border-right: 0.5px solid var(--border-primary);
+    }
+    
+    .tool-panel {
+        border-left: 0.5px solid var(--border-primary);
+    }
+}
+
+/* 打印样式 */
+@media print {
+    .sidebar,
+    .tool-panel,
+    .input-container {
+        display: none !important;
+    }
+    
+    .content-area {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    
+    .chat-container {
+        padding: 0 !important;
+    }
+    
+    .message {
+        page-break-inside: avoid;
+    }
+} 

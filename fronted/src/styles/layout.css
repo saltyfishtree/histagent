@@ -1,0 +1,42 @@
+/* 布局样式 */
+.main-layout {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    transition: width 0.3s ease;
+    min-height: 100vh;
+}
+
+.sidebar.collapsed {
+    width: 80px !important;
+}
+
+.content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.chat-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.message-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    max-height: calc(100vh - 200px);
+}
+
+.input-container {
+    border-top: 1px solid #e5e7eb;
+    background: white;
+    padding: 1rem;
+} 
